@@ -14,6 +14,10 @@
 
         }
         function App(){
+            // ***** modifer함수를 이용해서 state를 바꾸면 App 컴포넌트가 재생성되고, App 함수가 재실행됨
+            // => return이 재생성된다.
+            // state가 바뀌면 App 리렌더링
+            
             const [counter, modifier] = React.useState(0);
             //  const counter = data[0];
             //  const modifier = data[1];
@@ -21,9 +25,10 @@
             // React.useState(0) = [undefined, f];
 
             const onClick = () => {
-                modifier(counter+1);
+                //modifier(counter+1);
+                modifier((current) => current + 1);
             }
-            
+
             console.log(counter);
 
             return (<div>
