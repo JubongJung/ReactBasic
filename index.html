@@ -5,22 +5,32 @@
     </body>
     <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
         const root = document.getElementById("root");
-        const span = React.createElement(
-            "span", // objetct
-            {
-                onMouseEnter: ()=>console.log("mouse enter") // eventlister
-            },
-            "Hello I'm a span"
+        const Title = () => (<h3 id="title" onMouseEnter={() => console.log("mouse enter")}>Hello I'm a title </h3>);
+        const Button = () => (<button style={{backgroundColor:"tomato"}} onClick={()=>console.log("i'm clicked")}>Click me</button>);
+        
+        // const span = React.createElement(
+        //     "span", // objetct
+        //     {
+        //         onMouseEnter: ()=>console.log("mouse enter") // eventlister
+        //     },
+        //     "Hello I'm a span"
+        // );
+        // const btn = React.createElement(
+        //     "button", 
+        //     {
+        //         onClick:()=>console.log("im clicked")
+        //     }, 
+        // "click me");
+        const container = (
+        <div>
+            
+            <Title/> 
+            < Button/>
+        </div>
         );
-        const btn = React.createElement(
-            "button", 
-            {
-                onClick:()=>console.log("im clicked")
-            }, 
-        "click me");
-        const container = React.createElement("div",null,[span, btn]);
         ReactDOM.render(container, root);
     </script>
 </html>
